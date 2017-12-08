@@ -1,0 +1,21 @@
+<h1 class="page-header">Game list</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date played</th>
+      <th>User</th>
+      <th>Contender</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= game.game_date %></td>
+        <td><%= game.user.email %></td>
+        <td><%= game.contender.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
