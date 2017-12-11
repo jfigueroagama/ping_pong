@@ -10,7 +10,8 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @game.user = current_user
+    debugger
+    @game.user_id = current_user.id
     if @game.save
       redirect_to games_path, notice: 'Game was created.'
     else
@@ -25,6 +26,6 @@ class GamesController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def game_params
-      params.require(:game).permit(:game_date, :user_id, :contender_id)
+      params.require(:game).permit(:game_date, :user_id, :contender_id, :contender_name, :user_name)
     end
 end
